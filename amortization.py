@@ -15,13 +15,16 @@ class Amortization():
     term                = 0.0
     payment             = 0.0
     loanYears           = 0.0
-    mInterest           = 0.0 #tests how much the monthlyInterest variables in saveReport
+    info                = {}
+
 
     def __init__(self, loanAmount, yearlyInterestRate, loanYears):
         self.loanAmount         = loanAmount
         self.loanBalance        = loanAmount
         self.yearlyInterestRate = yearlyInterestRate
         self.loanYears          = loanYears
+        self.info["loanAmount"] = loanAmount
+        self.info["rate"]       = yearlyInterestRate
         self.calcPayment()
         
     
@@ -36,6 +39,8 @@ class Amortization():
 
     def saveReport(self, filename):
         file = open(filename, 'w')
+
+        file.write("Monthly Payment: %s\n" % str(round(self.payment,2)))
         
         for i in range(self.getNumberOfPayments()):
             monthlyInterest = self.yearlyInterestRate / 12.0 * self.loanBalance
@@ -45,10 +50,10 @@ class Amortization():
                 
             else:
                 principal = self.loanBalance
-                payment = self.loanBalance + monthlyInterest
+                self.payment = self.loanBalance + monthlyInterest
             
             self.loanBalance -= principal
-            
+            print(self.payment)
 
             file.write("Month %d: Principal = %s,  Interest = %f,  Loan Balance: %f\n" % (i+1, str(round(principal,2)), monthlyInterest.__round__(2), self.loanBalance.__round__(2)))
         

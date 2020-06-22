@@ -3,7 +3,7 @@ from amortization import Amortization
 
 
 
-am = Amortization(113000.0, .03, 30.0)
-print(am.saveReport("testpy.txt"))
+am = Amortization(129290.0, .03, 15.0)
 
-print(am.payment)
+print(am.saveReport("testpy.txt"))
+print(am.info.get("rate"))
