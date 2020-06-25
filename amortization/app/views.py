@@ -12,6 +12,11 @@ def index(request):
     am.generateSchedule()
     
     data = am.info
+    # need to build a row for each month consisting of Month, interest, principal
+    # a list of dictionaries
+
+    loanMonths = data['loanYears'] * 12
+    print(loanMonths)
 
     data = {
         'loanAmount': am.info['loanAmount'],

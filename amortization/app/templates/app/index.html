@@ -1,16 +1,39 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" type="text/css" href="{% static "app/css/main.css" %}">
+
     <title>Amortization</title>
 </head>
 <body>
-    Hello
     
-    {% for princ in principalList %}
-        <p>{{princ}}</p>
-    {% endfor %}
+    Mortgage Amortization Schedule
+    <table>
+        <tr>
+            <th>Month</th>
+            <th>Interest</th>
+            <th>Principal</th>
+            <th>Balance</th>
+
+        </tr>
+
+        {% for entry in principalList %} 
+            <tr>
+                <td>{{entry}}</td>
+            </tr>
+        {% endfor %}
+
+        {% for entry in interestList %}
+            <tr>
+                <td>{{entry}}</td>
+            </tr>
+        {% endfor %}
+
+    </table>
 
 </body>
 </html>
