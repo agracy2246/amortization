@@ -7,12 +7,12 @@ import java.text.DecimalFormat; // For the DecimalFormat class
  */
 
 public class Amortization {
-   private double loanAmount; // Loan Amount
-   private double interestRate; // Annual Interest Rate
+   private final double loanAmount; // Loan Amount
+   private final double interestRate; // Annual Interest Rate
    private double loanBalance; // Monthly Balance
    private double term; // Payment Term
    private double payment; // Monthly Payment
-   private int loanYears; // Years of Loan
+   private final int loanYears; // Years of Loan
 
    // delete after
    public double mInterest;
@@ -27,7 +27,7 @@ public class Amortization {
     * @param years The number of years of the loan.
     */
 
-   public Amortization(double loan, double rate, int years) {
+   public Amortization(final double loan, final double rate, final int years) {
       loanAmount = loan;
       loanBalance = loan;
       interestRate = rate;
@@ -48,10 +48,11 @@ public class Amortization {
       payment = (loanAmount * interestRate / 12.0 * term) / (term - 1);
    }
 
-   public double getTerm(){
+   public double getTerm() {
       return term;
    }
-   public double getPayment(){
+
+   public double getPayment() {
       return payment;
    }
 
@@ -73,12 +74,12 @@ public class Amortization {
     * @param filename The name of the file to create.
     */
 
-   public void saveReport(String filename) throws IOException {
+   public void saveReport(final String filename) throws IOException {
       double monthlyInterest; // The monthly interest rate
       double principal; // The amount of principal
-      DecimalFormat dollar = new DecimalFormat("#,##0.00");
-      FileWriter fwriter = new FileWriter(filename);
-      PrintWriter outputFile = new PrintWriter(fwriter);
+      final DecimalFormat dollar = new DecimalFormat("#,##0.00");
+      final FileWriter fwriter = new FileWriter(filename);
+      final PrintWriter outputFile = new PrintWriter(fwriter);
 
       // Print monthly payment amount.
       outputFile.println("Monthly Payment: $" + dollar.format(payment));

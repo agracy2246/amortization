@@ -1,9 +1,11 @@
 import amortization
 from amortization import Amortization
+import calendar
+from calendar import Calendar
+
+
+am = Amortization(300000.0, .03, 30.0)
 
 
 
-am = Amortization(129290.0, .03, 15.0)
 
-print(am.saveReport("testpy.txt"))
-print(am.info.get("rate"))
