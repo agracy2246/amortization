@@ -43,6 +43,24 @@ class Amortization():
     def getNumberOfPayments(self):
         return 12 * int(self.loanYears)
 
+    def generateSchedule(self):
+        
+        for i in range(self.getNumberOfPayments()):
+            monthlyInterest = self.yearlyInterestRate / 12.0 * self.loanBalance
+            self.info["interestList"].append(round(monthlyInterest,2))
+            
+            if i != self.getNumberOfPayments() - 1.0:
+                principal = self.payment - monthlyInterest
+                self.info["principalList"].append(round(principal,2))    
+            else:
+                principal = self.loanBalance
+                self.info["principalList"].append(round(principal,2))
+                self.payment = self.loanBalance + monthlyInterest
+            
+            self.loanBalance -= principal
+            self.info["loanBalanceList"].append(round(self.loanBalance,2))
+
+    
     def saveReport(self, filename):
         file = open(filename, 'w')
 
