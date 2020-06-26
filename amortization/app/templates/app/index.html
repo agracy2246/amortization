@@ -19,6 +19,7 @@
                 <th>Interest</th>
                 <th>Principal</th>
                 <th>Balance</th>
+                <th>Extra Payment</th>
 
             </tr>
 
@@ -28,12 +29,6 @@
                     <td>{{row.interest}}</td>
                     <td>{{row.principal}}</td>
                     <td>{{row.balance}}</td>
-                </tr>
-            {% endfor %}
-
-            {% for entry in interestList %}
-                <tr>
-                    <td>{{entry}}</td>
                 </tr>
             {% endfor %}
 
