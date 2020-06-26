@@ -11,32 +11,34 @@
 </head>
 <body>
     
-    Mortgage Amortization Schedule
-    <table>
-        <tr>
-            <th>Month</th>
-            <th>Interest</th>
-            <th>Principal</th>
-            <th>Balance</th>
-
-        </tr>
-
-        {% for row in rowData %} 
+    <div class="container">
+        Mortgage Amortization Schedule
+        <table>
             <tr>
-                <td>{{row.month}}</td>
-                <td>{{row.interest}}</td>
-                <td>{{row.principal}}</td>
-                <td>{{row.balance}}</td>
-            </tr>
-        {% endfor %}
+                <th>Month</th>
+                <th>Interest</th>
+                <th>Principal</th>
+                <th>Balance</th>
 
-        {% for entry in interestList %}
-            <tr>
-                <td>{{entry}}</td>
             </tr>
-        {% endfor %}
 
-    </table>
+            {% for row in rowData %} 
+                <tr>
+                    <td>{{row.month}}</td>
+                    <td>{{row.interest}}</td>
+                    <td>{{row.principal}}</td>
+                    <td>{{row.balance}}</td>
+                </tr>
+            {% endfor %}
+
+            {% for entry in interestList %}
+                <tr>
+                    <td>{{entry}}</td>
+                </tr>
+            {% endfor %}
+
+        </table>
+    </div>
 
 </body>
 </html>

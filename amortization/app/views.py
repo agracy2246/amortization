@@ -8,7 +8,7 @@ from .tablerow       import TableRow
 
 # Create your views here.
 def index(request):
-    am = Amortization(120000, .03, 30)
+    am = Amortization(250000, .02, 30)
     am.generateSchedule()
     
     

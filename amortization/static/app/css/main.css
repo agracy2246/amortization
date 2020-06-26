@@ -11,3 +11,9 @@ td, th {
 tr:nth-child(even) {
 	background-color: #dddddd;
 }
+body{
+	align-items: center;
+}
+.container {
+	align-items: center;
+}

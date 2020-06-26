@@ -2,6 +2,7 @@ table{
 	font-family: arial, sans-serif;
 	border-collapase: collapse;
 	width: 50%;
+	margin: auto;
 }
 td, th {
 	border: 1px solid #dddddd;
@@ -10,4 +11,10 @@ td, th {
 }
 tr:nth-child(even) {
 	background-color: #dddddd;
+}
+body{
+	text-align: center;
+}
+.container {
+	justify-self: center;
 }
