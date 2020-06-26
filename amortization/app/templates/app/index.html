@@ -21,9 +21,12 @@
 
         </tr>
 
-        {% for entry in principalList %} 
+        {% for row in rowData %} 
             <tr>
-                <td>{{entry}}</td>
+                <td>{{row.month}}</td>
+                <td>{{row.interest}}</td>
+                <td>{{row.principal}}</td>
+                <td>{{row.balance}}</td>
             </tr>
         {% endfor %}
 
