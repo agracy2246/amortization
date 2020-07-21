@@ -6,12 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" type="text/css" href="{% static "app/css/main.css" %}">
-
+    
     <title>Amortization</title>
 </head>
 <body>
     
     <div class="container">
+        <form action="/" method="POST">
+            {% csrf_token %}
+            <input type="text" name="loanAmount" placeholder="Loan Amount"></input>
+            <input type="text" name="yearlyInterestPercent" placeholder="Interest Rate"></input>
+            <label for="loanYears">Years:</label>
+            <select name="loanYears">
+                <option value="30">30</option>
+                <option value="15">15</option>
+            </select>
+            <input type="submit" value="Submit">Calculate</input>
+        </form>
         Mortgage Amortization Schedule
         <table>
             <tr>
@@ -29,6 +40,13 @@
                     <td>{{row.interest}}</td>
                     <td>{{row.principal}}</td>
                     <td>{{row.balance}}</td>
+                    <td class="centered-items">
+                        <form action="#">
+                            
+                            <input type="text" id="extraPayment" name="month{{ row.month }}" value="0">
+        
+                          </form> 
+                    </td>
                 </tr>
             {% endfor %}
 
